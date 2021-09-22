@@ -1,0 +1,70 @@
+<!DOCTYPE html><html lang="zh-Hans"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="904.水果成篮"><meta name="keywords" content="C++,数据结构与算法,LeetCode,双指针"><meta name="author" content="明天咪西什么"><meta name="copyright" content="明天咪西什么"><title>904.水果成篮 | 明天咪西什么</title><link rel="shortcut icon" href="/melody-favicon.ico"><link rel="stylesheet" href="/css/index.css?version=1.9.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css?version=1.9.0"><meta name="format-detection" content="telephone=no"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.css"><script src="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js"></script><script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script><link rel="dns-prefetch" href="https://hm.baidu.com"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?bfb1720f3c468b6234303c293b7d9a17";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();</script><meta name="baidu-site-verification" content="8N30CB2GB9"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  hexoVersion: '5.4.0'
+} </script><meta name="generator" content="Hexo 5.4.0"></head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar"><div class="toggle-sidebar-info text-center"><span data-toggle="切换文章详情">切换站点概览</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar">     </div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#904-%E6%B0%B4%E6%9E%9C%E6%88%90%E7%AF%AE"><span class="toc-text">904.水果成篮</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8F%8F%E8%BF%B0"><span class="toc-text">描述:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF"><span class="toc-text">思路:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81"><span class="toc-text">代码:</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%82%E8%80%83"><span class="toc-text">参考:</span></a></li></ol></li></ol></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="https://cdn.jsdelivr.net/gh/imxlq/image-bed-2021@main/img/20210815211410.jpg"></div><div class="author-info__name text-center">明天咪西什么</div><div class="author-info__description text-center">如果人生是为了回答一个问题，那我的问题是：明天咪西什么？</div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">文章</span><span class="pull-right">9</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">标签</span><span class="pull-right">7</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">分类</span><span class="pull-right">6</span></a></div></div></div><div id="content-outer"><div id="top-container" style="background-image: url(https://cdn.jsdelivr.net/gh/imxlq/image-bed-2021@main/img/20210815223445.jpg)"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">明天咪西什么</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus">   <a class="site-page" href="/">主页</a><a class="site-page" href="/archives">档案</a><a class="site-page" href="/tags">标签</a><a class="site-page" href="/categories">分类</a></span><span class="pull-right"></span></div><div id="post-info"><div id="post-title">904.水果成篮</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2021-09-22</time><span class="post-meta__separator">|</span><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/%E5%AD%A6%E4%B9%A0/">学习</a><i class="fa fa-angle-right" aria-hidden="true"></i><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/%E5%AD%A6%E4%B9%A0/LeetCode/">LeetCode</a><i class="fa fa-angle-right" aria-hidden="true"></i><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/%E5%AD%A6%E4%B9%A0/LeetCode/%E6%95%B0%E7%BB%84/">数组</a></div></div></div><div class="layout" id="content-inner"><article id="post"><div class="article-container" id="post-content"><h1 id="904-水果成篮"><a href="#904-水果成篮" class="headerlink" title="904.水果成篮"></a>904.水果成篮</h1><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/fruit-into-baskets/">LeetCode</a></p>
+<h2 id="描述"><a href="#描述" class="headerlink" title="描述:"></a>描述:</h2><p>在一排树中，第 i 棵树产生 tree[i] 型的水果。<br>你可以从你选择的任何树开始，然后重复执行以下步骤：</p>
+<ol>
+<li>把这棵树上的水果放进你的篮子里。如果你做不到，就停下来。</li>
+<li>移动到当前树右侧的下一棵树。如果右边没有树，就停下来。</li>
+</ol>
+<p>请注意，在选择一颗树后，你没有任何选择：你必须执行步骤 1，然后执行步骤 2，然后返回步骤 1，然后执行步骤 2，依此类推，直至停止。</p>
+<p>你有两个篮子，每个篮子可以携带任何数量的水果，但你希望每个篮子只携带一种类型的水果。</p>
+<p>用这个程序你能收集的水果树的最大总量是多少？</p>
+<p>示例 1：</p>
+<p>输入：[1,2,1]<br>输出：3<br>解释：我们可以收集 [1,2,1]。<br>示例 2：</p>
+<p>输入：[0,1,2,2]<br>输出：3<br>解释：我们可以收集 [1,2,2]<br>如果我们从第一棵树开始，我们将只能收集到 [0, 1]。</p>
+<ul>
+<li>这个题目描述的比较迷, 主要看题目讲述的两个步骤, 和示例, 可以分析出题目要求, 也即在一个数组中, 找出一个子数组, 这个子数组只能含有两个元素, 需要返回找到的最长的子数组的长度.</li>
+</ul>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路:"></a>思路:</h2><ul>
+<li><p>求子数组, 一般可以处理为滑动窗口法, 即双指针法, 这里我看到了LeetCode的一个题解所说的滑动窗口题目的一个模板, 比较有意义, 在这里引用一下:<br>求最长子数组长度，直滑动窗口模板。</p>
+<p><strong>最长窗口模板</strong>(<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/fruit-into-baskets/solution/tao-mo-ban-hua-dong-chuang-kou-qiu-zui-c-pner/">引用链接</a>)</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span>(枚举选择)</span><br><span class="line">    右边界</span><br><span class="line">    <span class="keyword">while</span>(不符合条件)</span><br><span class="line">        左边界</span><br><span class="line">    更新结果</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码:"></a>代码:</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * @lc app=leetcode.cn id=904 lang=cpp</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * [904] 水果成篮</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// @lc code=start</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">totalFruit</span><span class="params">(vector&lt;<span class="keyword">int</span>&gt;&amp; fruits)</span> </span>&#123;</span><br><span class="line">      unordered_map&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; window;</span><br><span class="line">        <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> left = <span class="number">0</span>, right = <span class="number">0</span>; right &lt; fruits.<span class="built_in">size</span>(); right++) &#123;</span><br><span class="line">            window[fruits[right]]++;</span><br><span class="line">            <span class="keyword">while</span> (window.<span class="built_in">size</span>() &gt; <span class="number">2</span>) &#123;</span><br><span class="line">                window[fruits[left]]--;</span><br><span class="line">                <span class="keyword">if</span> (window[fruits[left]] == <span class="number">0</span>) &#123;</span><br><span class="line">                    window.<span class="built_in">erase</span>(fruits[left]);</span><br><span class="line">                &#125;</span><br><span class="line">                left++;</span><br><span class="line">            &#125;</span><br><span class="line">            res = <span class="built_in">max</span>(res, right - left + <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<ul>
+<li>时间复杂度：O(N)，其中 N 是 <code>tree</code> 的长度。</li>
+<li>空间复杂度：O(N)。</li>
+</ul>
+</blockquote>
+<ul>
+<li>这里使用到了C++的STL标准库中的“无序map容器”, 上述代码中14行: <code>window[fruits[right]]++;</code> 可直接将window赋值, 其中, fruits[right]为key, “++”操作后, key对应的值为加一, 初始值为0.</li>
+</ul>
+<hr>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考:"></a>参考:</h3><ol>
+<li><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/fruit-into-baskets/solution/zhong-gui-zhong-ju-bo-diao-ma-jia-gai-ti-ben-zhi-j/">【中规中矩】904. 水果成篮 (披上马甲的滑窗问题）</a></p>
+</li>
+<li><p> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/fruit-into-baskets/solution/tao-mo-ban-hua-dong-chuang-kou-qiu-zui-c-pner/">套模板！滑动窗口求最长子数组！</a></p>
+</li>
+<li><p> <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/fruit-into-baskets/solution/shui-guo-cheng-lan-by-leetcode/">904.水果成篮(官方题解)</a></p>
+</li>
+</ol>
+</div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">明天咪西什么</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://imxlq.github.io/2021/09/22/904-水果成篮/">https://imxlq.github.io/2021/09/22/904-水果成篮/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://imxlq.github.io">明天咪西什么</a>！</span></div></div><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/C/">C++</a><a class="post-meta__tags" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">数据结构与算法</a><a class="post-meta__tags" href="/tags/LeetCode/">LeetCode</a><a class="post-meta__tags" href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88/">双指针</a></div><nav id="pagination"><div class="next-post pull-right"><a href="/2021/09/16/209-%E9%95%BF%E5%BA%A6%E6%9C%80%E5%B0%8F%E7%9A%84%E5%AD%90%E6%95%B0%E7%BB%84/"><span>209.长度最小的子数组</span><i class="fa fa-chevron-right"></i></a></div></nav><div id="gitalk-container"></div><script>var gitalk = new Gitalk({
+  clientID: 'b91d9b559e0144411e50',
+  clientSecret: 'dcbf2ba4eefc96e23b5485102e9a412294384639',
+  repo: 'imxlq.github.io',
+  owner: 'imxlq',
+  admin: 'imxlq',
+  id: md5(decodeURI(location.pathname)),
+  language: 'zh-CN'
+})
+gitalk.render('gitalk-container')</script></div></div><footer class="footer-bg" style="background-image: url(https://cdn.jsdelivr.net/gh/imxlq/image-bed-2021@main/img/20210815223445.jpg)"><div class="layout" id="footer"><div class="copyright">&copy;2021 By 明天咪西什么</div><div class="framework-info"><span>驱动 - </span><a target="_blank" rel="noopener" href="http://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 - </span><a target="_blank" rel="noopener" href="https://github.com/Molunerfinn/hexo-theme-melody"><span>Melody</span></a></div><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fa fa-file"></i><span id="busuanzi_value_page_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.9.0"></script><script src="/js/fancybox.js?version=1.9.0"></script><script src="/js/sidebar.js?version=1.9.0"></script><script src="/js/copy.js?version=1.9.0"></script><script src="/js/fireworks.js?version=1.9.0"></script><script src="/js/transition.js?version=1.9.0"></script><script src="/js/scroll.js?version=1.9.0"></script><script src="/js/head.js?version=1.9.0"></script><script>if(/Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent)) {
+  $('#nav').addClass('is-mobile')
+  $('footer').addClass('is-mobile')
+  $('#top-container').addClass('is-mobile')
+}</script></body></html>
